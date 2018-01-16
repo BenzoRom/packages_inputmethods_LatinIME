@@ -34,6 +34,10 @@ LOCAL_CFLAGS += -Werror -Wall -Wextra -Weffc++ -Wformat=2 -Wcast-qual -Wcast-ali
 # To suppress compiler warnings for unused variables/functions used for debug features etc.
 LOCAL_CFLAGS += -Wno-unused-parameter -Wno-unused-function
 
+# clang 7.0 adds some noisy warnings under -Wextra,
+# They should be disabled by default.
+LOCAL_CFLAGS += -Wno-tautological-type-limit-compare
+
 # HACK: -mstackrealign is required for x86 builds running on pre-KitKat devices to avoid crashes
 # with SSE instructions.
 ifeq ($(TARGET_ARCH), x86)
