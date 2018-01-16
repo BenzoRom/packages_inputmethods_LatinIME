@@ -38,6 +38,10 @@ LOCAL_CFLAGS += -Werror -Wall -Wextra -Weffc++ -Wformat=2 -Wcast-qual -Wcast-ali
 LOCAL_CFLAGS += -Wno-unused-parameter -Wno-unused-function
 LOCAL_CFLAGS += -Wno-unused-parameter -Wno-unused-function
 
+# clang 7.0 adds some noisy warnings under -Wextra,
+# They should be disabled by default.
+LOCAL_CFLAGS += -Wno-tautological-type-limit-compare
+
 include $(LOCAL_PATH)/NativeFileList.mk
 include $(LATIN_IME_CORE_PATH)/NativeFileList.mk
 
